@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# YouTube Clone 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Features
+
+- React JS 
+- TypeScript
+- Material-UI
 
 ## Available Scripts
 
