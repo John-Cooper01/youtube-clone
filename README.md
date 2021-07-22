@@ -2,7 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Features
+## 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
 
 - React JS 
 - TypeScript
