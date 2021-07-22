@@ -5,7 +5,6 @@ import { dbvideos } from '../../../components/db'
 export default function BodyMain() {
   return (
     <>
-
       <Box p={0} sx={{ flexGrow: 1, background: '#181818' }}>
         <Toolbar />
         <Box width="100%" >

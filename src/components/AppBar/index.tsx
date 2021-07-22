@@ -32,6 +32,19 @@ const useStyles = makeStyles((theme) => ({
   subheader: {
     textTransform: 'uppercase',
   },
+  scrollBar: {
+    '&::-webkit-scrollbar': {
+      width: '0.4em',
+    },
+    '&::-webkit-scrollbar-track': {
+      '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.00)',
+      borderRadius: '3px',
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: '#9e9e9e',
+      borderRadius: '3px',
+    }
+  }
 }));
 
 const drawerWidth = 240;
@@ -51,8 +64,7 @@ export default function TopBar() {
               edge="start"
               color="inherit"
               aria-label="menu"
-              sx={{ mr: 2 }}
-            >
+              sx={{ mr: 2 }}>
               <MenuIcon />
             </IconButton>
             <img src={theme.palette.mode === 'dark' ? '/images/branco.png' : '/images/preto.png'} alt='logo' className={classes.logo} />
@@ -102,19 +114,16 @@ export default function TopBar() {
                 width: drawerWidth,
                 flexShrink: 0,
                 [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: "border-box", borderRight: "none" },
-              }}
-            >
+              }}>
               <Toolbar />
-              <Box sx={{ overflow: "auto" }}>
+              <Box className={classes.scrollBar} sx={{ overflow: "auto" }}>
                 <List>
                   <ListItem button>
                     <ListItemIcon sx={{ color: "#aaa" }}>
                       {<HomeIcon />}
                     </ListItemIcon>
                     <ListItemText
-                      classes={{
-                        primary: classes.listItemText
-                      }}
+                      classes={{ primary: classes.listItemText }}
                       primary={"Home"} />
                   </ListItem>
                   <ListItem button >
@@ -133,9 +142,10 @@ export default function TopBar() {
                       classes={{ primary: classes.listItemText }}
                       primary={'Subscriptions'} />
                   </ListItem>
-
                 </List>
+
                 <Divider />
+
                 <List>
                   <ListItem button >
                     <ListItemIcon sx={{ color: "#aaa" }}>
