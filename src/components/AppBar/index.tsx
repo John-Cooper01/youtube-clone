@@ -1,5 +1,10 @@
 import { makeStyles } from '@material-ui/styles';
-import { AppBar, Box, Button, Divider, Drawer, Hidden, IconButton, InputBase, List, ListItem, ListItemIcon, ListItemText, ListSubheader, Paper, Toolbar, Typography, useTheme } from '@material-ui/core';
+import { dbMenu } from '../db'
+import {
+  AppBar, Box, Button, Divider, Drawer, Hidden, IconButton, InputBase,
+  List, ListItem, ListItemIcon, ListItemText, ListSubheader, Paper, Theme, Toolbar,
+  Typography, useTheme
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AppsIcon from '@material-ui/icons/Apps';
@@ -15,8 +20,7 @@ import BodyMain from '../../pages/homePage/body';
 import SearchIcon from '@material-ui/icons/Search';
 import MicIcon from '@material-ui/icons/Mic';
 
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   appBar: {
     boxShadow: 'none !important',
   },
@@ -44,7 +48,18 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: '#9e9e9e',
       borderRadius: '3px',
     }
-  }
+  },
+  search: {
+    position: "absolute",
+    left: "25%",
+    display: "flex",
+    alignItems: "center"
+  },
+  '@media (max-width: 960px)': {
+    search: {
+      display: 'none',
+    },
+  },
 }));
 
 const drawerWidth = 240;
@@ -70,14 +85,16 @@ export default function TopBar() {
             <img src={theme.palette.mode === 'dark' ? '/images/branco.png' : '/images/preto.png'} alt='logo' className={classes.logo} />
 
             <div className={classes.grow} />
-            <Box sx={{ position: "absolute", left: "25%", display: "flex", alignItems: "center" }}>
-              <Paper sx={{ height: "35px" }} >
+
+            <Box className={classes.search} sx={{}}>
+              <Paper sx={{ height: "35px", }} >
                 <InputBase
-                  sx={{ height: "40px", width: "562px", ml: 1, flex: 1 }}
+                  sx={{ height: "40px", minWidth: "562px", ml: 1, flex: 1 }}
                   placeholder="Search"
                   inputProps={{ "aria-label": "search" }}
                   size="small" />
               </Paper>
+
               <Button
                 sx={{ height: "36px", background: "#313131", color: "#515151" }}
                 variant="contained"
@@ -88,6 +105,7 @@ export default function TopBar() {
               <IconButton color="inherit">
                 <MicIcon sx={{ width: "33px", height: "33px" }} />
               </IconButton>
+
             </Box>
 
             <IconButton color="inherit">
@@ -97,16 +115,19 @@ export default function TopBar() {
             <IconButton color="inherit">
               <MoreVertIcon />
             </IconButton>
+
             <Button
               startIcon={<AccountCircleIcon />}
               variant="outlined"
               color="secondary">
               Login
             </Button>
-          </Toolbar>
-        </AppBar>
-        <Box display="flex">
 
+          </Toolbar>
+
+        </AppBar>
+
+        <Box display="flex">
           <Hidden mdDown>
             <Drawer
               variant="permanent"
@@ -115,7 +136,9 @@ export default function TopBar() {
                 flexShrink: 0,
                 [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: "border-box", borderRight: "none" },
               }}>
+
               <Toolbar />
+
               <Box className={classes.scrollBar} sx={{ overflow: "auto" }}>
                 <List>
                   <ListItem button>
@@ -173,8 +196,7 @@ export default function TopBar() {
                     <Button
                       variant='outlined'
                       color='secondary'
-                      startIcon={<AccountCircle />}
-                    >
+                      startIcon={<AccountCircle />}>
                       SIGN IN
                     </Button>
                   </Box>
@@ -368,8 +390,9 @@ export default function TopBar() {
               </Box>
             </Drawer>
           </Hidden>
-
-          <BodyMain />
+          <Box sx={{ maxWidth: "1230px", minWidth: "250px" }}>
+            <BodyMain />
+          </Box>
         </Box>
       </Box>
     </>

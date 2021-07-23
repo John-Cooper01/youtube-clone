@@ -1,30 +1,64 @@
-import { Avatar, Box, Chip, Divider, Grid, Toolbar, Typography } from '@material-ui/core';
-import { dbvideos } from '../../../components/db'
+import { useState } from 'react';
+import { Avatar, Box, Divider, Grid, Tab, Tabs, Toolbar, Typography, tabsClasses } from '@material-ui/core';
+import { dbvideos, dbTabs } from '../../../components/db';
+import { makeStyles } from '@material-ui/styles';
 
+
+const useStyles = makeStyles((theme) => ({
+  tabRoot: {
+    minHeight: "32px !important",
+    fontSize: "14px !important",
+    padding: "7px 16px !important",
+  },
+}));
 
 export default function BodyMain() {
+
+  const classes = useStyles();
+  const [value, setValue] = useState(0);
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  }
+
   return (
     <>
       <Box p={0} sx={{ flexGrow: 1, background: '#181818' }}>
         <Toolbar />
-        <Box width="100%" >
+        <Box>
           <Divider />
           <Box sx={{ paddingY: 1, background: '#202020' }} >
-            <Chip label="All" variant="outlined" sx={{ marginLeft: 1, marginRight: 1 }} />
-            <Chip label="Playlists" variant="outlined" sx={{ marginRight: 1 }} />
-            <Chip label="Soft Rock" variant="outlined" sx={{ marginRight: 1 }} />
-            <Chip label="Albums" variant="outlined" sx={{ marginRight: 1 }} />
-            <Chip label="All" variant="outlined" sx={{ marginRight: 1 }} />
-            <Chip label="Chants" variant="outlined" sx={{ marginRight: 1 }} />
-            <Chip label="Soul Music" variant="outlined" sx={{ marginRight: 1 }} />
-            <Chip label="Jazz" variant="outlined" sx={{ marginRight: 1 }} />
-            <Chip label="Music" variant="outlined" sx={{ marginRight: 1 }} />
-            <Chip label="Live" variant="outlined" sx={{ marginRight: 1 }} />
-            <Chip label="Electronic dance music" variant="outlined" sx={{ marginRight: 1 }} />
-            <Chip label="Samba" variant="outlined" sx={{ marginRight: 1 }} />
-            <Chip label="Samba" variant="outlined" sx={{ marginRight: 1 }} />
-            <Chip label="Samba" variant="outlined" sx={{ marginRight: 1 }} />
-            <Chip label="Samba" variant="outlined" sx={{ marginRight: 1 }} />
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              variant="scrollable"
+              scrollButtons="auto"
+              aria-label="visible arrows tabs example"
+              classes={{ root: classes.tabRoot }}
+              sx={{
+                [`& .${tabsClasses.scrollButtons}`]: {
+                  '&.Mui-disabled': { opacity: 0.3 },
+                  color: "#fff"
+                },
+                [`& .${tabsClasses.indicator}`]: {
+                  '&.MuiTabs-indicator': {
+                    display: "none",
+                  },
+                },
+              }}>
+              {
+                dbTabs.map((items, index) => (
+                  <Tab key={index} sx={{
+                    background: 'rgba(255,255,255, 0.1)',
+                    borderRadius: "35px",
+                    fontSize: "14px",
+                    textTransform: "none",
+                    border: '1px solid rgba(255,255,255, 0.1)',
+                    marginLeft: "10px !important"
+                  }}
+                    classes={{ root: classes.tabRoot }}
+                    label={items.title} />
+                ))}
+            </Tabs>
           </Box>
           <Divider />
         </Box>

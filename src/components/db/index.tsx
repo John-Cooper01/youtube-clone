@@ -143,3 +143,21 @@ export const dbvideos = [
   },
 
 ]
+
+export const dbTabs = [
+  { title: "All" },
+  { title: "Playlists" },
+  { title: "Soft Rock" },
+  { title: "Albums" },
+  { title: "All" },
+  { title: "Chants" },
+  { title: "Soul Music" },
+  { title: "Jazz" },
+  { title: "Music" },
+  { title: "Live" },
+  { title: "Electronic dance music" },
+  { title: "Samba" },
+  { title: "Samba" },
+  { title: "Samba" },
+  { title: "Samba" },
+]

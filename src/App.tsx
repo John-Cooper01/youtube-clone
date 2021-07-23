@@ -1,4 +1,4 @@
-import { ThemeProvider, createTheme } from '@material-ui/core';
+import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 import Home from './pages/homePage';
 
 
@@ -8,7 +8,7 @@ function App() {
     palette: {
       mode: 'dark',
       primary: {
-        main: '#f44336',
+        main: '#fff',
       },
       secondary: {
         main: '#3EA6FF',
@@ -16,6 +16,16 @@ function App() {
       background: {
         default: '#202020',
         paper: '#202020'
+      },
+
+    },
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
       },
     },
   })
