@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/styles';
-import { dbMenu } from '../db'
 import {
   AppBar, Box, Button, Divider, Drawer, Hidden, IconButton, InputBase,
   List, ListItem, ListItemIcon, ListItemText, ListSubheader, Paper, Theme, Toolbar,

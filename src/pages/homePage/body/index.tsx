@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "14px !important",
     padding: "7px 16px !important",
   },
+  cursor: {
+    cursor: "pointer"
+  }
 }));
 
 export default function BodyMain() {
@@ -68,18 +71,20 @@ export default function BodyMain() {
             {
               dbvideos.map((items: any, inddex: any) => (
                 <Grid item lg={3} md={4} sm={6} xs={12} key={inddex}>
-                  <Box>
+                  <Box >
                     <img
+                      className={classes.cursor}
                       style={{ width: '100%' }}
                       alt={items.title}
                       src={items.thumb} />
                     <Box sx={{ display: "flex" }}>
-                      <Box>
+                      <Box className={classes.cursor}>
                         <Avatar alt="F" src={items.avatar} />
                       </Box>
                       <Box sx={{ width: 245, height: 112, marginLeft: "5px" }}>
 
                         <Typography
+                          className={classes.cursor}
                           style={{ fontWeight: 600, fontSize: "14px" }}
                           gutterBottom
                           variant="body1"
@@ -88,6 +93,7 @@ export default function BodyMain() {
                         </Typography>
 
                         <Typography
+                          className={classes.cursor}
                           display="block"
                           variant="body2"
                           color="textSecondary">
