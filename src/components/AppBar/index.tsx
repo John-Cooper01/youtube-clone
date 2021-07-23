@@ -389,7 +389,7 @@ export default function TopBar() {
               </Box>
             </Drawer>
           </Hidden>
-          <Box sx={{ maxWidth: "1230px", minWidth: "250px" }}>
+          <Box sx={{ maxWidth: "1233px", minWidth: "250px" }}>
             <BodyMain />
           </Box>
         </Box>

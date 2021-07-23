@@ -8,7 +8,7 @@ function App() {
     palette: {
       mode: 'dark',
       primary: {
-        main: '#fff',
+        main: '#202020',
       },
       secondary: {
         main: '#3EA6FF',
